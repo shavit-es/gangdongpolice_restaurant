@@ -18,11 +18,10 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	$sqlloadb="SELECT num_eat from numeat WHERE meal='breakfast';";
 $resultb=mysqli_query($conn, $sqlloadb);
 $rowb=mysqli_fetch_array($resultb)['num_eat'];
-
-	$sqlloadl="SELECT num_eat from numeat WHERE meal='lunch';";
+$sqlloadl="SELECT num_eat from numeat WHERE meal='lunch';";
 $resultl=mysqli_query($conn, $sqlloadl);
 $rowl=mysqli_fetch_array($resultl)['num_eat'];
-	$sqlloadd="SELECT num_eat from numeat WHERE meal='dinner';";
+$sqlloadd="SELECT num_eat from numeat WHERE meal='dinner';";
 $resultd=mysqli_query($conn, $sqlloadd);
 $rowd=mysqli_fetch_array($resultd)['num_eat'];
 ?>
@@ -57,17 +56,15 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 			<!-- <button type="button" class="btn btn-primary btn-sm" onclick="breakfast()">조식</button> -->
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 				<input type="submit" value="조식" name="조식" class="btn btn-primary btn-sm" />
-				<p>
-					<?=$rowb?>
-				</p>
+				<p class="text-center"><?=$rowb?></p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 				<input type="submit" value="중식" name="중식" class="btn btn-primary btn-sm" />
-				<p><?=$rowl?></p>
+				<p class="text-center"><?=$rowl?></p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 				<input type="submit" value="석식" name="석식" class="btn btn-primary btn-sm" />
-				<p><?=$rowd?></p>
+				<p class="text-center"><?=$rowd?></p>
 			</form>
 		</div>
 		<script>

@@ -36,7 +36,7 @@ if(isset($_GET['id'])){
 		$escaped_id=htmlspecialchars($row['id']);
 	$escaped_title=htmlspecialchars($row['title']);
 	$escaped_created=htmlspecialchars($row['created']);
-	$list = $list."<th>{$escaped_id}</th><th><a href='index.php?id={$row['id']}'>{$escaped_title}</a></th><th>{$escaped_created}</th></tr><tr>";
+	$list = $list."<th>{$escaped_id}</th><th><a href='announcement.php?id={$row['id']}'>{$escaped_title}</a></th><th>{$escaped_created}</th></tr><tr>";
 }
 	$list = $list.'</tr>
 			</tbody>
