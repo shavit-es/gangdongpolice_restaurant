@@ -11,5 +11,5 @@ $headpart='
 		crossorigin="anonymous"
 	/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />';
-$conn = mysqli_connect("localhost", "shavit0423", "0430", "numeat");
+
 ?>

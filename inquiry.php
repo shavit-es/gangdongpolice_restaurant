@@ -1,5 +1,6 @@
 <?php
 include "commonpart.php";
+$conn = mysqli_connect("localhost", "shavit0423", "0430", "numeat");
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
     if ( !empty($_POST['조식']) && ( $_POST['조식'] == '조식' ) ) {
         $sql = "UPDATE numeat SET num_eat=(num_eat+1) WHERE meal='breakfast';";
@@ -33,7 +34,7 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
-	<?=$headpart?>
+		<?=$headpart?>
 	</head>
 	<body>
 		<?=$navbar?>
@@ -55,24 +56,24 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 		<div class="d-flex justify-content-around p-3 bd-highlight">
 			<!-- <button type="button" class="btn btn-primary btn-sm" onclick="breakfast()">조식</button> -->
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="조식" name="조식" class="btn btn-primary btn-sm"/>
+				<input type="submit" value="조식" name="조식" class="btn btn-primary btn-sm" />
 				<p>
 					<?=$rowb?>
 				</p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="중식" name="중식" class="btn btn-primary btn-sm"/>
+				<input type="submit" value="중식" name="중식" class="btn btn-primary btn-sm" />
 				<p><?=$rowl?></p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="석식" name="석식" class="btn btn-primary btn-sm"/>
+				<input type="submit" value="석식" name="석식" class="btn btn-primary btn-sm" />
 				<p><?=$rowd?></p>
 			</form>
 		</div>
 		<script>
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-				integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-				crossorigin="anonymous"
+			src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js';
+			integrity = 'sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj';
+			crossorigin = 'anonymous';
 		</script>
 	</body>
 </html>
