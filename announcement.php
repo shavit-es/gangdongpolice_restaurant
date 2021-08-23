@@ -24,19 +24,19 @@ if(isset($_GET['id'])){
 	$result=mysqli_query($conn, $loadsql);
 	$list='<table class="table table-striped"><thead>
 		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>날짜</th>
+			<th class="text-center">번호</th>
+			<th class="text-center">제목</th>
+			<th class="text-center">날짜</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>';
-	$write_btn='<a class="btn btn-outline-secondary">글쓰기</a>';
+	$write_btn='<a class="btn btn-outline-secondary" href="announcement_writing.php">글쓰기</a>';
 	while($row = mysqli_fetch_array($result)){
 		$escaped_id=htmlspecialchars($row['id']);
 	$escaped_title=htmlspecialchars($row['title']);
-	$escaped_created=htmlspecialchars($row['created']);
-	$list = $list."<th>{$escaped_id}</th><th><a href='announcement.php?id={$row['id']}'>{$escaped_title}</a></th><th>{$escaped_created}</th></tr><tr>";
+	$escaped_created=substr(htmlspecialchars($row['created']),0,10);
+	$list = $list."<th class='text-center'>{$escaped_id}</th><th class='text-center'><a href='announcement.php?id={$row['id']}'>{$escaped_title}</a></th><th class='text-center'>{$escaped_created}</th></tr><tr>";
 }
 	$list = $list.'</tr>
 			</tbody>
