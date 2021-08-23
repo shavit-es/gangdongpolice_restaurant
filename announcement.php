@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("localhost", "shavit0423", "0430", "announcement");
+$conn = mysqli_connect("13.125.210.40", "shavit0423", "0430", "announcement");
 $text='';
 $filtered_id=mysqli_real_escape_string($conn, $_GET['id']);
 if(isset($_GET['id'])){
