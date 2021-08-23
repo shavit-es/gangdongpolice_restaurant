@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("13.125.210.40", "shavit0423", "0430", "announcement");
+$conn = mysqli_connect("13.125.210.40", "shavit0423", "hyun0430!@my", "announcement","51648");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
