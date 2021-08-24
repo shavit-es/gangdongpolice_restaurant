@@ -9,7 +9,7 @@ $sql="
 INSERT INTO announcement
 (title, description, created)
 VALUES(
-'{$filtered['title']}','{$filtered['description']}',DATE(NOW())
+'{$filtered['title']}','{$filtered['description']}',NOW()
 )";
 $result = mysqli_query($conn, $sql);
 if($result === false){

@@ -19,7 +19,7 @@ $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement"
 			</li>
 		</ul>
 		<div class="container p-4">
-			<form action="announce_create_process.php" method="POST">
+			<form action="announce_create_process.php" method="POST" onsubmit="return confirm('글을 작성하시겠습니까?')">
 				<div class="input-group input-group-sm">
 					<span class="input-group-text" id="inputGroup-sizing-default">제목</span>
 					<input
@@ -36,11 +36,12 @@ $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement"
 						placeholder="Leave a comment here"
 						id="floatingTextarea2"
 						style="height: 100px;"
+							  name="description"
 					></textarea>
 					<label for="floatingTextarea2">내용</label>
 				</div>
 				<p class="text-end mt-3">
-					<input class="btn btn-primary btn-sm" type="submit" value="작성" onclick="return confirm('글을 작성하시겠습니까?');" />
+					<input class="btn btn-primary btn-sm" type="submit" value="작성"/>
 				</p>
 			</form>
 		</div>
