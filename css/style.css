@@ -13,3 +13,11 @@
 	padding: .25rem .5rem .25rem .5rem;
 }
 
+.rows{
+	color: #000;
+	font-weight: bold;
+}
+
+a{
+	text-decoration:none;
+}
