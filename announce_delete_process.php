@@ -10,8 +10,6 @@
 		echo '<a href="announcement?id={$filtered_id}>돌아가기</a>"';
 		error_log(mysqli_error($conn));
 	} else {
-	echo "<script> 
-		document.location.href='announcement.php'; 
-		</script>"; 
+		header("Location: announcement.php");
 	}
 ?>
