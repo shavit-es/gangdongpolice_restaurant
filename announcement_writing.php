@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("13.125.210.40", "shavit0423", "hyun0430!@my", "announcement","51648");
+$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -40,7 +40,7 @@ $conn = mysqli_connect("13.125.210.40", "shavit0423", "hyun0430!@my", "announcem
 					<label for="floatingTextarea2">내용</label>
 				</div>
 				<p class="text-end mt-3">
-					<input class="btn btn-primary btn-sm" type="submit" value="작성" />
+					<input class="btn btn-primary btn-sm" type="submit" value="작성" onclick="return confirm('글을 작성하시겠습니까?');" />
 				</p>
 			</form>
 		</div>

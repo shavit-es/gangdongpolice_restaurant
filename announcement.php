@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("13.125.210.40", "shavit0423", "hyun0430!@my", "announcement","51648");
+$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
 $text='';
 $filtered_id=mysqli_real_escape_string($conn, $_GET['id']);
 if(isset($_GET['id'])){
@@ -9,14 +9,14 @@ if(isset($_GET['id'])){
 	$rowdes = mysqli_fetch_array($result);
 	$desctitle = htmlspecialchars($rowdes['title']);
 	$descdesc = htmlspecialchars($rowdes['description']);
+	$update_link='<a href="update.php?id='.$_GET["id"].'>update</a>';
+	$delete_link='<form action="announce_delete_process.php" method="post" onsubmit="return confirm(\'글을 삭제하시겠습니까?\');">
+	<input type="hidden" name="id" value='.$_GET["id"].'>
+	<input class="btn btn-outline-secondary" type="submit" value="삭제">
+	</form>';
 	$text="<p>{$desctitle}</p>
-	<p>{$descdesc}</p>";
-	$update_link='<a href="update.php?id='.$_GET["id"].'">update</a>';
-	$delete_link='<form action="process_delete.php" method="post">
-	<input type="hidden" name="id" value="'.$_GET['id'].'">
-	<input type="submit" value="delete">
-	</form>
-	';
+	<p>{$descdesc}</p>
+	<p>{$delete_link}</p>";
 	$write_btn='';
 }else{
 	$text='';

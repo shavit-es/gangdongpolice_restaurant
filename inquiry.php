@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("13.125.210.40", "shavit0423", "hyun0430!@my", "numeat","51648");
+$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "numeat");
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
     if ( !empty($_POST['조식']) && ( $_POST['조식'] == '조식' ) ) {
         $sql = "UPDATE numeat SET num_eat=(num_eat+1) WHERE meal='breakfast';";
