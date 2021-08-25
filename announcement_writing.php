@@ -2,31 +2,30 @@
 include "commonpart.php";
 $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
 ?>
+<script>
+function checker(){
+	if (fo.title.value == ""){
+		alert('제목을 반드시 입력해야합니다.');
+		return false;
+	}else{
+		return confirm('글을 작성하시겠습니까?');
+	}
+}
+</script>
 <!DOCTYPE html>
 <html lang="ko">
 	<?=$headpart?>
 	<body>
 		<?=$navbar?>
-		<ul class="nav justify-content-center">
-			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="announcement.php">공지사항</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">메뉴</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="inquiry.php">식수조사</a>
-			</li>
-		</ul>
 		<div class="container p-4">
-			<form action="announce_create_process.php" method="POST" onsubmit="return confirm('글을 작성하시겠습니까?')">
+			<form name="fo" action="announce_create_process.php" method="POST" onsubmit="return checker();">
 				<div class="input-group input-group-sm">
 					<span class="input-group-text" id="inputGroup-sizing-default">제목</span>
 					<input
 						type="text"
 						class="form-control"
-						aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-default"
+						aria-label="title"
+						aria-describedby="제목"
 						name="title"
 					/>
 				</div>

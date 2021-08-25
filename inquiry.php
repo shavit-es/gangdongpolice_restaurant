@@ -37,17 +37,6 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 	</head>
 	<body>
 		<?=$navbar?>
-		<ul class="nav justify-content-center">
-			<li class="nav-item">
-				<a class="nav-link" href="announcement.php">공지사항</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">메뉴</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="inquiry.php">식수조사</a>
-			</li>
-		</ul>
 		<p class="text-center choose">
 			금일 식사하실 끼니를 선택해주세요.
 		</p>

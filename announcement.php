@@ -10,17 +10,19 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	$rowdes = mysqli_fetch_array($result);
 	$desctitle = htmlspecialchars($rowdes['title']);
 	$descdesc = htmlspecialchars($rowdes['description']);
-	$modify_link='<a href="announce_modifying.php?id='.$filterd_id.'>수정</a>';
+	$modify_link='<a class="btn btn-outline-secondary" href="announcement_modifying.php?id='.$filtered_id.'">수정</a>'; //수정 버튼
 	$delete_link='<form action="announce_delete_process.php" method="post" onsubmit="return confirm(\'글을 삭제하시겠습니까?\');">
-	<input type="hidden" name="id" value='.$filterd_id.'>
+	<input type="hidden" name="id" value='.$filtered_id.'>
 	<input class="btn btn-outline-secondary" type="submit" value="삭제">
-	</form>';
-	$text="<div class='ms-2 me-2'><p class='desctitle text-center mt-3'>{$desctitle}</p>
-	<p class='descdesc text-center mt-1'>{$descdesc}</p>
-	<p>{$delete_link}</p></div>";
-	$write_btn='';
+	</form>'; //삭제 버튼
+	$text="<div class='ms-2 me-2'><p class='desctitle mt-3'>{$desctitle}</p>
+	<p class='descdesc mt-1'>{$descdesc}</p>
+	<div class='d-flex justify-content-between'><div>{$modify_link}</div><div>{$delete_link}</div>
+	</div>
+	</div>"; //만약 id 값이 있을 때 출력할 게시글 제목 및 내용, 수정버튼과 삭제버튼
+	$write_btn=''; //id 값이 있을 때는 글쓰기 버튼 없음.
 }else{
-	$text='';
+	$text=''; //id 값이 없을 때는 글 내용이 없으므로 빈 칸.
 	$table='<table class="table table-striped"><thead>
 		<tr>
 			<th class="text-center" scope="col">제목</th>
@@ -28,8 +30,8 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 		</tr>
 		</thead>
 		<tbody>
-		<tr>';
-	if(isset($_GET['page'])){//페이지
+		<tr>'; //table 기본 뼈대
+	if(isset($_GET['page'])){//페이지 값 확인
 		$page= $_GET['page'];
 	}else{
 		$page=1;
@@ -54,7 +56,7 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 		$escaped_title=htmlspecialchars($tablerow['title']);
 		$escaped_id=htmlspecialchars($tablerow['id']);
 		$escaped_created=substr(htmlspecialchars($tablerow['created']),2,8);
-		$table .= "<td class='text-center'><a href='announcement.php?id={$escaped_id}' class='link-secondary rows'>{$escaped_title}</a></td><td class='text-center' width='100px'>{$escaped_created}</td></tr><tr>";
+		$table .= "<td class='text-center'><a href='announcement.php?id={$escaped_id}' class='link-secondary rows'>{$escaped_title}</a></td><td class='text-center' width='100px'><a href='announcement.php?id={$escaped_id}' class='link-secondary date'>{$escaped_created}</a></td></tr><tr>";
 	}
 	$table = $table.'</tr></tbody></table>';
 	$write_btn='<a class="btn btn-outline-secondary mt-4" href="announcement_writing.php">글쓰기</a>';
@@ -65,17 +67,6 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	<?=$headpart?>
 	<body>
 		<?=$navbar?>
-		<ul class="nav justify-content-center">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="announcement.php">공지사항</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">메뉴</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="inquiry.php">식수조사</a>
-				</li>
-		</ul>
 		<div class="container">
 			<?=$text?>
 			<?=$table?>
@@ -87,9 +78,9 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 					  { //만약 page가 1보다 작거나 같다면
 						echo '<a class="nav-link disabled" tabindex="-1" aria-disabled="true">처음</a>'; //처음 비활성화
 					  }else{
-						echo "<li class='nav_item'><a class='nav-link' href='announcement.php?page=1'>처음</a></li>"; //아니라면 처음글자에 1번페이지로 갈 수있게 링크
+						echo "<li class='nav_item'><a class='nav-link' href='announcement.php?page=1'>처음</a></li>"; //처음이 1번 페이지로 링크
 					  }
-					  if($page <= 1){//만약 page가 1보다 작거나 같다면 비활성화
+					  if($page <= 1){//만약 page가 1보다 작거나 같다면 이전 버튼 비활성화
 						  echo "<li class='nav_item'><a class='nav-link disabled'>이전</a></li>";
 					  }else{
 					  $pre = $page-1; //pre변수에 page-1을 해준다 만약 현재 페이지가 3인데 이전버튼을 누르면 2번페이지로 갈 수 있게 함

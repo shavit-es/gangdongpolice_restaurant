@@ -18,6 +18,10 @@
 	font-weight: bold;
 }
 
+.date{
+	color: #000;
+}
+
 .desctitle{
 	border-bottom-style: solid;
 	border-bottom-width:2px;
