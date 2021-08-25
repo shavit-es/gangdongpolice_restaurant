@@ -18,6 +18,17 @@
 	font-weight: bold;
 }
 
+.desctitle{
+	border-bottom-style: solid;
+	border-bottom-width:2px;
+	border-bottom-color:lightgray;
+	font-weight:bold;
+	font-size:1.1rem;
+}
+
+.descdesc{
+	border-radius:10px;
+}
 a{
 	text-decoration:none;
 }
