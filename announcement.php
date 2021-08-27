@@ -14,9 +14,11 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	<input type="hidden" name="id" value='.$filtered_id.'>
 	<input class="btn btn-outline-secondary" type="submit" value="삭제">
 	</form>'; //삭제 버튼
+	$page=htmlspecialchars($_GET["page"]);
+	$list_link='<a class="btn btn-outline-secondary" href="announcement.php?page='.$page.'">목록</a>';
 	$text="<div class='ms-2 me-2'><p class='desctitle mt-3'>{$desctitle}</p>
 	<p class='descdesc mt-1'>{$descdesc}</p>
-	<div class='d-flex justify-content-between'><div>{$modify_link}</div><div>{$delete_link}</div>
+	<div class='d-flex justify-content-between mt-5'><div>{$modify_link}</div><div>{$list_link}</div><div>{$delete_link}</div>
 	</div>
 	</div>"; //만약 id 값이 있을 때 출력할 게시글 제목 및 내용, 수정버튼과 삭제버튼
 	$write_btn=''; //id 값이 있을 때는 글쓰기 버튼 없음.
@@ -55,7 +57,7 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 		$escaped_title=htmlspecialchars($tablerow['title']);
 		$escaped_id=htmlspecialchars($tablerow['id']);
 		$escaped_created=substr(htmlspecialchars($tablerow['created']),2,8);
-		$table .= "<td class='text-center'><a href='announcement.php?id={$escaped_id}' class='link-secondary rows'>{$escaped_title}</a></td><td class='text-center' width='100px'><a href='announcement.php?id={$escaped_id}' class='link-secondary date'>{$escaped_created}</a></td></tr><tr>";
+		$table .= "<td class='text-center'><a href='announcement.php?page={$page}&id={$escaped_id}' class='link-secondary rows'>{$escaped_title}</a></td><td class='text-center' width='100px'><a href='announcement.php?id={$escaped_id}' class='link-secondary date'>{$escaped_created}</a></td></tr><tr>";
 	}
 	$table = $table.'</tr></tbody></table>';
 	$write_btn='<a class="btn btn-outline-secondary mt-4" href="announcement_writing.php">글쓰기</a>';
