@@ -40,3 +40,7 @@ a{
 .imgsize{
 	max-width:90%;
 }
+
+.btn-right{
+	float:right;
+}
