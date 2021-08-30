@@ -12,7 +12,9 @@ $passwordinputstr='<form method="POST"><div class="container p-4 text-center">
 	<p class="text-end mt-3"></p></div></form>';
 ?>
 <script>
-
+function loading(){
+	document.getElementById('spinner').className += "spinner-border text-primary"
+}
 </script>
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,7 +35,8 @@ $passwordinputstr='<form method="POST"><div class="container p-4 text-center">
 		 <br>
 		 <form class="text-end" method="post" action="menu_uploading.php" enctype="multipart/form-data"> 
 		 <input class="form-label" type="file" name="menuimg"/><br>
-		 <input class="btn btn-primary btn-sm me-3" type="submit" value="업로드" onclick="loading();" /></form>
+		 <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
+		 <input class="btn btn-primary btn-sm me-5" type="submit" value="업로드" onclick="loading();" /></form>
 			';
 	}else{
 		if (isset($_POST['password'])){
@@ -42,6 +45,9 @@ $passwordinputstr='<form method="POST"><div class="container p-4 text-center">
 	}
 	?>
 		<?=$passwordinputstr?>
+		<div class="text-center">
+		<div id="spinner" role="status"></div>
+		</div>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

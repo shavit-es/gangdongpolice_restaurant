@@ -9,23 +9,23 @@ $ext = array_pop(explode('.', $name));
 $uppart='<!DOCTYPE html>
 <html lang="ko">
 	<head>
-		<?=$headpart?>
+		'.$headpart.'
 	</head>
 	<body>
-		<?=$navbar?>';
+		'.$navbar;
 
 // 오류 확인
 if( $error != UPLOAD_ERR_OK ) {
 	switch( $error ) {
 		case UPLOAD_ERR_INI_SIZE:
 		case UPLOAD_ERR_FORM_SIZE:
-			echo $uppart."<p class='text-center'>파일이 너무 큽니다. ($error)</p>";
+			echo $uppart."<p class='text-center mt-4'>파일이 너무 큽니다. ($error)</p>";
 			break;
 		case UPLOAD_ERR_NO_FILE:
-			echo $uppart."<p class='text-center'>파일이 첨부되지 않았습니다. ($error)</p>";
+			echo $uppart."<p class='text-center mt-4'>파일이 첨부되지 않았습니다. ($error)</p>";
 			break;
 		default:
-			echo $uppart."<p class='text-center'>파일이 제대로 업로드되지 않았습니다. ($error)";
+			echo $uppart."<p class='text-center mt-4'>파일이 제대로 업로드되지 않았습니다. ($error)";
 	}
 	exit;
 }
@@ -40,5 +40,5 @@ if( !in_array($ext, $allowed_ext) ) {
  
 // 파일 이동
 move_uploaded_file( $_FILES['menuimg']['tmp_name'], "$uploads_dir/menu.png");
-header("Location:menu_upload.php")
+header("Location:menu.php")
 ?>
