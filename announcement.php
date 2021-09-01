@@ -2,6 +2,7 @@
 include "commonpart.php";
 $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement"); //mysql 서버 연결
 $text='';
+$table='';
 if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	$filtered_id=htmlspecialchars($_GET['id']); //보안(XSS) 공격 방지
 	$dessql="SELECT * FROM announcement WHERE id={$filtered_id};"; //id값에 해당하는 행 받아오기

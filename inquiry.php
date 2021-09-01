@@ -1,3 +1,7 @@
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
 <?php
 include "commonpart.php";
 $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "numeat");
@@ -15,7 +19,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $result=mysqli_query($conn, $sql);
     }
 }
-	$sqlloadb="SELECT num_eat from numeat WHERE meal='breakfast';";
+$sqlloadb="SELECT num_eat from numeat WHERE meal='breakfast';";
 $resultb=mysqli_query($conn, $sqlloadb);
 $rowb=mysqli_fetch_array($resultb)['num_eat'];
 $sqlloadl="SELECT num_eat from numeat WHERE meal='lunch';";
@@ -25,11 +29,6 @@ $sqlloadd="SELECT num_eat from numeat WHERE meal='dinner';";
 $resultd=mysqli_query($conn, $sqlloadd);
 $rowd=mysqli_fetch_array($resultd)['num_eat'];
 ?>
-
-<script>
-	// var now = new Date();	// 현재 날짜 및 시간
-	// var date = now.getDate();	// 월
-</script>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -44,15 +43,15 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 		<div class="d-flex justify-content-around p-3 bd-highlight">
 			<!-- <button type="button" class="btn btn-primary btn-sm" onclick="breakfast()">조식</button> -->
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="조식" name="조식" class="btn btn-primary btn-sm" />
+				<input type="submit" value="조식" name="조식" class="inquiry_btn btn btn-primary btn-sm" />
 				<p class="text-center"><?=$rowb?></p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="중식" name="중식" class="btn btn-primary btn-sm" />
+				<input type="submit" value="중식" name="중식" class="inquiry_btn btn btn-primary btn-sm" />
 				<p class="text-center"><?=$rowl?></p>
 			</form>
 			<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-				<input type="submit" value="석식" name="석식" class="btn btn-primary btn-sm" />
+				<input type="submit" value="석식" name="석식" class="inquiry_btn btn btn-primary btn-sm" />
 				<p class="text-center"><?=$rowd?></p>
 			</form>
 		</div>
