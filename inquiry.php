@@ -28,6 +28,11 @@ $rowl=mysqli_fetch_array($resultl)['num_eat'];
 $sqlloadd="SELECT num_eat from numeat WHERE meal='dinner';";
 $resultd=mysqli_query($conn, $sqlloadd);
 $rowd=mysqli_fetch_array($resultd)['num_eat'];
+date_default_timezone_set('Asia/Seoul');
+$todaytime = strtotime("Now");
+$today=date("m/d", $todaytime);
+$tommorowtime =strtotime("+1 days");
+$tomorrow = date("m/d", $tommorowtime);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -36,10 +41,10 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 	</head>
 	<body>
 		<?=$navbar?>
-		<p class="text-center choose">
-			금일 식사하실 끼니를 선택해주세요.
+		<!-- <p class="text-center choose">
+			금일(<?=$today?>) 식사하실 끼니를 선택해주세요.
 		</p>
-		<div class="d-flex justify-content-around p-3 bd-highlight">
+		<div class="d-flex justify-content-around p-3 m-3 bd-highlight border-bottom">
 			<form action="inquiry_process.php" method="POST">
 				<input type="submit" value="조식" name="조식" class="inquiry_btn btn btn-sm" id="breakfast_btn"/>
 				<p class="text-center"><?=$rowb?></p>
@@ -52,24 +57,42 @@ $rowd=mysqli_fetch_array($resultd)['num_eat'];
 				<input type="submit" value="석식" name="석식" class="inquiry_btn btn btn-sm" id="dinner_btn"/>
 				<p class="text-center"><?=$rowd?></p>
 			</form>
+		</div>
+		<br> -->
+		<p class="text-center choose">
+			내일(<?=$tomorrow?>) 식사하실 끼니를 선택해주세요.
+		</p>
+		<div class="d-flex justify-content-around p-3 m-3 bd-highlight border-bottom">
+			<form action="inquiry_process.php" method="POST">
+				<input type="submit" value="조식" name="조식" class="inquiry_btn btn btn-sm" id="breakfast_btn"/>
+				<p class="text-center"><?=$rowb?></p>
+			</form>
+			<form action="inquiry_process.php" method="POST">
+				<input type="submit" value="중식" name="중식" class="inquiry_btn btn btn-sm" id="lunch_btn"/>
+				<p class="text-center"><?=$rowl?></p>
+			</form>
+			<form action="inquiry_process.php" method="POST">
+				<input type="submit" value="석식" name="석식" class="inquiry_btn btn btn-sm" id="dinner_btn"/>
+				<p class="text-center"><?=$rowd?></p>
+			</form>
+		</div>
 <?php
 //버튼 표시
-if($_COOKIE["breakfast"]==1){
+if(isset($_COOKIE["breakfast"]) and $_COOKIE["breakfast"]==1){
 	echo '<script>$("#breakfast_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
 }else{
 	echo '<script>$("#breakfast_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if($_COOKIE["lunch"]==1){
+if(isset($_COOKIE["lunch"]) and $_COOKIE["lunch"]==1){
 	echo '<script>$("#lunch_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}elseif($_COOKIE["lunch"]==0){
+}else{
 	echo '<script>$("#lunch_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if($_COOKIE["dinner"]==1){
+if(isset($_COOKIE["dinner"]) and $_COOKIE["dinner"]==1){
 	echo '<script>$("#dinner_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}elseif($_COOKIE["dinner"]==0){
+}else{
 	echo '<script>$("#dinner_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
 ?>
-		</div>
 	</body>
 </html>

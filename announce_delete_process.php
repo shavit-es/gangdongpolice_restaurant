@@ -22,7 +22,9 @@
 	<body>
 		<?=$navbar?>
 		<?php
-	$inputpass= $_POST['password'];
+	if(isset($_POST['password'])){
+		$inputpass= $_POST['password'];
+	}
 	if (password_verify($inputpass, $adminpass)){
 		settype($_POST['id'],'integer');
 		$filtered_id=mysqli_real_escape_string($conn, $_POST['id']);
