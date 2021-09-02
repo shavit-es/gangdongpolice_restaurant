@@ -8,24 +8,43 @@
 	crossorigin = 'anonymous';
 </script>
 <?php
+date_default_timezone_set('Asia/Seoul');
 if(!isset($_COOKIE["breakfasttoday"])){ //첫 세팅
-	setcookie('breakfasttoday', 0, time()+86400, '/');
+	if(isset($_COOKIE["breakfasttomorrowalive"])){
+		setcookie('breakfasttoday', $_COOKIE["breakfasttomorrowalive"], strtotime("today 23:59"), '/');
+		header('Location:inquiry.php');
+	}else{
+		setcookie('breakfasttoday', 0, strtotime("today 23:59"), '/');
+	}
 }
 if(!isset($_COOKIE["lunchtoday"])){
-	setcookie('lunchtoday', 0, time()+86400, '/');
+	if(isset($_COOKIE["lunchtomorrowalive"])){
+		setcookie('lunchtoday', $_COOKIE["lunchtomorrowalive"], strtotime("today 23:59"), '/');
+		header('Location:inquiry.php');
+	}else{
+		setcookie('lunchtoday', 0, strtotime("today 23:59"), '/');
+	}
 }
 if(!isset($_COOKIE["dinnertoday"])){
-	setcookie('dinnertoday', 0, time()+86400, '/');
+	if(isset($_COOKIE["dinnertomorrowalive"])){
+		setcookie('dinnertoday', $_COOKIE["dinnertomorrowalive"], strtotime("today 23:59"), '/');
+		header('Location:inquiry.php');
+	}else{
+		setcookie('dinnertoday', 0, strtotime("today 23:59"), '/');
+	}
 }
 
 if(!isset($_COOKIE["breakfasttomorrow"])){ //첫 세팅
-	setcookie('breakfasttoday', 0, time()+86400, '/');
+	setcookie('breakfasttomorrow', 0, strtotime("today 23:59"), '/');
+	setcookie('breakfasttomorrowalive', 0, strtotime("tomorrow 23:59"), '/');
 }
 if(!isset($_COOKIE["lunchtomorrow"])){
-	setcookie('lunchtoday', 0, time()+86400, '/');
+	setcookie('lunchtomorrow', 0, strtotime("today 23:59"), '/');
+	setcookie('lunchtomorrowalive', 0, strtotime("tomorrow 23:59"), '/');
 }
 if(!isset($_COOKIE["dinnertomorrow"])){
-	setcookie('dinnertoday', 0, time()+86400, '/');
+	setcookie('dinnertomorrow', 0, strtotime("today 23:59"), '/');
+	setcookie('dinnertomorrowalive', 0, strtotime("tomorrow 23:59"), '/');
 }
 include "commonpart.php";
 $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "numeat");
@@ -39,7 +58,6 @@ $meals = mysqli_fetch_array($resulti);
 $resultbtoday=htmlspecialchars($meals['breakfast']);
 $resultltoday=htmlspecialchars($meals['lunch']);
 $resultdtoday=htmlspecialchars($meals['dinner']);
-date_default_timezone_set('Asia/Seoul');
 $todaytime = strtotime("Now");
 $today=date("m/d", $todaytime);
 $tommorowtime =strtotime("+1 days");
