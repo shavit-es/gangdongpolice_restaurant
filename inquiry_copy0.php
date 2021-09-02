@@ -56,15 +56,15 @@ $tomorrow = date("m/d", $tommorowtime);
 			금일(<?=$today?>) 식사하실 끼니를 선택해주세요.
 		</p>
 		<div class="d-flex justify-content-around p-3 m-3 bd-highlight border-bottom">
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="조식" name="조식오늘" class="inquiry_btn btn btn-sm" id="breakfasttoday_btn"/>
 				<p class="text-center"><?=$resultbtoday?></p>
 			</form>
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="중식" name="중식오늘" class="inquiry_btn btn btn-sm" id="lunchtoday_btn"/>
 				<p class="text-center"><?=$resultltoday?></p>
 			</form>
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="석식" name="석식오늘" class="inquiry_btn btn btn-sm" id="dinnertoday_btn"/>
 				<p class="text-center"><?=$resultdtoday?></p>
 			</form>
@@ -74,15 +74,15 @@ $tomorrow = date("m/d", $tommorowtime);
 			내일(<?=$tomorrow?>) 식사하실 끼니를 선택해주세요.
 		</p>
 		<div class="d-flex justify-content-around p-3 m-3 bd-highlight border-bottom">
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="조식" name="조식내일" class="inquiry_btn btn btn-sm" id="breakfasttomorrow_btn"/>
 				<p class="text-center"><?=$resultbtomorrow?></p>
 			</form>
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="중식" name="중식내일" class="inquiry_btn btn btn-sm" id="lunchtomorrow_btn"/>
 				<p class="text-center"><?=$resultltomorrow?></p>
 			</form>
-			<form action="inquiry_process.php" method="POST">
+			<form action="inquiry_process_copy0.php" method="POST">
 				<input type="submit" value="석식" name="석식내일" class="inquiry_btn btn btn-sm" id="dinnertomorrow_btn"/>
 				<p class="text-center"><?=$resultdtomorrow?></p>
 			</form>
@@ -94,12 +94,12 @@ if(isset($_COOKIE["breakfasttoday"]) and $_COOKIE["breakfasttoday"]==1){
 }else{
 	echo '<script>$("#breakfasttoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if(isset($_COOKIE["lunch"]) and $_COOKIE["lunch"]==1){
+if(isset($_COOKIE["lunchtoday"]) and $_COOKIE["lunchtoday"]==1){
 	echo '<script>$("#lunchtoday_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
 }else{
 	echo '<script>$("#lunchtoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if(isset($_COOKIE["dinner"]) and $_COOKIE["dinner"]==1){
+if(isset($_COOKIE["dinnertoday"]) and $_COOKIE["dinnertoday"]==1){
 	echo '<script>$("#dinnertoday_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
 }else{
 	echo '<script>$("#dinnertoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
@@ -110,12 +110,12 @@ if(isset($_COOKIE["breakfasttomorrow"]) and $_COOKIE["breakfasttomorrow"]==1){
 }else{
 	echo '<script>$("#breakfasttomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if(isset($_COOKIE["lunch"]) and $_COOKIE["lunch"]==1){
+if(isset($_COOKIE["lunchtomorrow"]) and $_COOKIE["lunchtomorrow"]==1){
 	echo '<script>$("#lunchtomorrow_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
 }else{
 	echo '<script>$("#lunchtomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
-if(isset($_COOKIE["dinner"]) and $_COOKIE["dinner"]==1){
+if(isset($_COOKIE["dinnertomorrow"]) and $_COOKIE["dinnertomorrow"]==1){
 	echo '<script>$("#dinnertomorrow_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
 }else{
 	echo '<script>$("#dinnertomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
