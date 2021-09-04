@@ -1,18 +1,19 @@
 <?php
-	include 'commonpart.php';
-	$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
-	settype($_POST['id'],'integer');
-	$filtered_id=mysqli_real_escape_string($conn, $_POST['id']);
-	$sql = 'SELECT password from password;';
-	$result = mysqli_query($conn,$sql);
-	$adminpass = htmlspecialchars(mysqli_fetch_array($result)['password']);
-	$passwordinputstr='<form method="POST"><div class="container p-4 text-center">
-	<br>관리자만이 글을 삭제할 수 있습니다. <br>비밀번호를 입력해주세요.<div class="input-group mt-3 mb-1">
-	  <span class="input-group-text" id="basic-addon1">비밀번호</span>
-	  <input type="hidden" name="id" value="'.$filtered_id.'">
-	  <input type="password" name="password" class="form-control" aria-label="Username" aria-describedby="basic-addon1"></div><p class="text-end mt-3">
-	<input class="btn btn-primary btn-sm" type="submit" value="작성"/></p></div>
-	<p class="text-end mt-3"></p></div></form>';
+include 'commonpart.php';
+// $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
+$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+settype($_POST['id'],'integer');
+$filtered_id=mysqli_real_escape_string($conn, $_POST['id']);
+$sql = 'SELECT password from password;';
+$result = mysqli_query($conn,$sql);
+$adminpass = htmlspecialchars(mysqli_fetch_array($result)['password']);
+$passwordinputstr='<form method="POST"><div class="container p-4 text-center">
+<br>관리자만이 글을 삭제할 수 있습니다. <br>비밀번호를 입력해주세요.<div class="input-group mt-3 mb-1">
+  <span class="input-group-text" id="basic-addon1">비밀번호</span>
+  <input type="hidden" name="id" value="'.$filtered_id.'">
+  <input type="password" name="password" class="form-control" aria-label="Username" aria-describedby="basic-addon1"></div><p class="text-end mt-3">
+<input class="btn btn-primary btn-sm" type="submit" value="작성"/></p></div>
+<p class="text-end mt-3"></p></div></form>';
 ?>
 
 

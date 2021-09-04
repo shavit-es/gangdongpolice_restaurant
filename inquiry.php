@@ -47,7 +47,7 @@ if(!isset($_COOKIE["dinnertomorrow"])){
 	setcookie('dinnertomorrowalive', 0, strtotime("tomorrow 23:59"), '/');
 }
 include "commonpart.php";
-$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "numeat");
+$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "numeat");
 $sqli = "SELECT * FROM inquiry order by id desc LIMIT 2";
 $resulti=mysqli_query($conn, $sqli);
 $meals = mysqli_fetch_array($resulti);
@@ -87,7 +87,7 @@ $tomorrow = date("m/d", $tommorowtime);
 				<p class="text-center"><?=$resultdtoday?></p>
 			</form>
 		</div>
-		<br>
+		
 		<p class="text-center choose">
 			내일(<?=$tomorrow?>) 식사하실 끼니를 선택해주세요.
 		</p>

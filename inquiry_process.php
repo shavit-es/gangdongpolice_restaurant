@@ -1,7 +1,7 @@
 <?php
 include "commonpart.php";
 date_default_timezone_set('Asia/Seoul');
-$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "numeat");
+$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "numeat");
 //안눌러져 있는 상태에서 눌렀을 때
 if(($_COOKIE["breakfasttomorrow"]==0) and (!empty($_POST['조식내일'])) and ( $_POST['조식내일'] == '조식' )) {
 	$sql1 = "UPDATE inquiry SET breakfast=(breakfast+1) ORDER BY id DESC LIMIT 1;";

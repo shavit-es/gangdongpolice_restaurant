@@ -1,5 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
+// $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
+$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
 $filtered = array(
 'title'=>mysqli_real_escape_string($conn,$_POST['title']),
 'description'=>mysqli_real_escape_string($conn,$_POST['description']),
