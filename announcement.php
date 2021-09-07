@@ -10,7 +10,7 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	$result = mysqli_query($conn, $dessql);
 	$rowdes = mysqli_fetch_array($result);
 	$desctitle = htmlspecialchars($rowdes['title']);
-	$descdesc = htmlspecialchars($rowdes['description']);
+	$descdesc = nl2br(htmlspecialchars($rowdes['description']));
 	$modify_link='<a class="btn btn-outline-secondary" href="announcement_modifying.php?id='.$filtered_id.'">수정</a>'; //수정 버튼
 	$delete_link='<form action="announce_delete_process.php" method="post" onsubmit="return confirm(\'글을 삭제하시겠습니까?\');">
 	<input type="hidden" name="id" value='.$filtered_id.'>
@@ -18,7 +18,7 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 	</form>'; //삭제 버튼
 	$page=htmlspecialchars($_GET["page"]);
 	$list_link='<a class="btn btn-outline-secondary" href="announcement.php?page='.$page.'">목록</a>';
-	$text="<div class='ms-2 me-2'><p class='desctitle mt-3'>{$desctitle}</p>
+	$text="<div class='ms-4 me-4'><p class='desctitle mt-3'>{$desctitle}</p>
 	<p class='descdesc mt-1'>{$descdesc}</p>
 	<div class='d-flex justify-content-between mt-5'><div>{$modify_link}</div><div>{$list_link}</div><div>{$delete_link}</div>
 	</div>
@@ -113,11 +113,4 @@ if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
 			</div>
 			<?=$write_btn?>
 		</div>
-			 
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-			crossorigin="anonymous"
-		></script>
-	</body>
-</html>
+<?=$endpart?>

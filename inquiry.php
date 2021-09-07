@@ -2,11 +2,6 @@
   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
   crossorigin="anonymous"></script>
-<script>
-	src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js';
-	integrity = 'sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj';
-	crossorigin = 'anonymous';
-</script>
 <?php
 date_default_timezone_set('Asia/Seoul');
 if(!isset($_COOKIE["breakfasttoday"])){ //첫 세팅
@@ -138,6 +133,6 @@ if(isset($_COOKIE["dinnertomorrow"]) and $_COOKIE["dinnertomorrow"]==1){
 }else{
 	echo '<script>$("#dinnertomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
 }
+		echo $endpart;
 ?>
-	</body>
-</html>
+		

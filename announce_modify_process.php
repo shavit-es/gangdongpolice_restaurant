@@ -4,7 +4,7 @@ $conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement
 $filtered = array(
 'id'=>htmlspecialchars($_POST['id']),
 'title'=>mysqli_real_escape_string($conn,$_POST['title']),
-'description'=>mysqli_real_escape_string($conn,$_POST['description']),
+'description'=> mysqli_real_escape_string($conn,$_POST['description']),
 );
 $sql="
 UPDATE announcement SET title='{$filtered["title"]}', description='{$filtered["description"]}' WHERE id='{$filtered["id"]}'";
