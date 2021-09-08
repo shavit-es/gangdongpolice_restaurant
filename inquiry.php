@@ -102,37 +102,22 @@ $tomorrow = date("m/d", $tommorowtime);
 		</div>
 <?php
 //버튼 표시 오늘
-if(isset($_COOKIE["breakfasttoday"]) and $_COOKIE["breakfasttoday"]==1){
-	echo '<script>$("#breakfasttoday_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#breakfasttoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
-if(isset($_COOKIE["lunchtoday"]) and $_COOKIE["lunchtoday"]==1){
-	echo '<script>$("#lunchtoday_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#lunchtoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
-if(isset($_COOKIE["dinnertoday"]) and $_COOKIE["dinnertoday"]==1){
-	echo '<script>$("#dinnertoday_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#dinnertoday_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
-
-if(isset($_COOKIE["breakfasttomorrow"]) and $_COOKIE["breakfasttomorrow"]==1){
-	echo '<script>$("#breakfasttomorrow_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#breakfasttomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
-if(isset($_COOKIE["lunchtomorrow"]) and $_COOKIE["lunchtomorrow"]==1){
-	echo '<script>$("#lunchtomorrow_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#lunchtomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
-if(isset($_COOKIE["dinnertomorrow"]) and $_COOKIE["dinnertomorrow"]==1){
-	echo '<script>$("#dinnertomorrow_btn").removeClass("btn-primary").addClass("btn-secondary");</script>';
-}else{
-	echo '<script>$("#dinnertomorrow_btn").removeClass("btn-secondary").addClass("btn-primary");</script>';
-}
+	function buttonclass($cookiename, $btnid){
+		if(isset($_COOKIE[$cookiename]) and $_COOKIE[$cookiename]==1){
+		echo '<script>$("'.$btnid.'").removeClass("btn-primary").addClass("btn-secondary");</script>';
+		}else{
+			echo '<script>$("'.$btnid.'").removeClass("btn-secondary").addClass("btn-primary");</script>';
+		}
+	}
+		
+		
+		buttonclass("breakfasttoday", "#breakfasttoday_btn");
+		buttonclass("lunchtoday", "#lunchtoday_btn");
+		buttonclass("dinnertoday", "#dinnertoday_btn");
+		
+		buttonclass("breakfasttomorrow" , "#breakfasttomorrow_btn");
+		buttonclass("lunchtomorrow" ,"#lunchtomorrow_btn");
+		buttonclass("dinnertomorrow" , "#dinnertomorrow_btn");
+		
 		echo $endpart;
 ?>
-		
