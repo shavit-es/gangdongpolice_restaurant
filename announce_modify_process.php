@@ -1,6 +1,5 @@
 <?php
-// $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+$conn = mysqli_connect("ip", "아이디", "비밀번호", "announcement");
 $filtered = array(
 'id'=>htmlspecialchars($_POST['id']),
 'title'=>mysqli_real_escape_string($conn,$_POST['title']),
