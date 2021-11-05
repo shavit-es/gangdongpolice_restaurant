@@ -1,7 +1,6 @@
 <?php
 include 'commonpart.php';
-// $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement");
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+$conn = mysqli_connect("ip", "아이디", "비밀번호", "announcement");
 settype($_POST['id'],'integer');
 $filtered_id=mysqli_real_escape_string($conn, $_POST['id']);
 $sql = 'SELECT password from password;';
