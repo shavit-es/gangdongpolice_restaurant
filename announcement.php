@@ -1,7 +1,6 @@
 <?php
 include "commonpart.php";
-// $conn = mysqli_connect("localhost", "shavit0423", "hyun0430!@my", "announcement"); //mysql 서버 연결
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+$conn = mysqli_connect("ip", "아이디", "비밀번호", "announcement");
 $text='';
 $table='';
 if(isset($_GET['id'])){ //id값이 존재한다면 ?id=*
