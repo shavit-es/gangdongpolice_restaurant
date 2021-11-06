@@ -10,7 +10,7 @@ function checker(){
 </script>
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+$conn = mysqli_connect("ip", "아이디", "비밀번호", "announcement");
 $filtered_id=htmlspecialchars($_GET['id']); //보안(XSS) 공격 방지
 $sql = 'SELECT password from password;';
 $result = mysqli_query($conn,$sql);
