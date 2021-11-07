@@ -1,6 +1,6 @@
 <?php
 include "commonpart.php";
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "announcement");
+$conn = mysqli_connect("ip", "아이디", "패스워드", "announcement");
 $sql = 'SELECT password from password;';
 $result = mysqli_query($conn,$sql);
 $adminpass = htmlspecialchars(mysqli_fetch_array($result)['password']);
