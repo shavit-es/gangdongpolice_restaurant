@@ -1,7 +1,7 @@
 <?php
 include "commonpart.php";
 date_default_timezone_set('Asia/Seoul');
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "numeat");
+$conn = mysqli_connect("ip", "아이디", "Knp7109!", "numeat");
 //안눌러져 있는 상태에서 눌렀을 때
 
 function inquiryyes($meal ,$postvalue, $day){
