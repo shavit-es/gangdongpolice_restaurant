@@ -42,7 +42,7 @@ if(!isset($_COOKIE["dinnertomorrow"])){
 	setcookie('dinnertomorrowalive', 0, strtotime("tomorrow 23:59"), '/');
 }
 include "commonpart.php";
-$conn = mysqli_connect("146.56.146.249", "restandeat", "Knp7109!", "numeat");
+$conn = mysqli_connect("ip", "아이디", "비밀번호", "numeat");
 $sqli = "SELECT * FROM inquiry order by id desc LIMIT 2";
 $resulti=mysqli_query($conn, $sqli);
 $meals = mysqli_fetch_array($resulti);
